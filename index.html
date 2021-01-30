@@ -112,3 +112,27 @@
          if(i>hours)
          document.querySelector('#calendar-row'+i).classList.add('future')
        }
+
+       var answer=[{}]
+       
+       function saveInfo(){
+         for(i=1;i<=11;i++){
+           var getEntry = document.querySelector('#text-entry'+i).value
+           if(getEntry===''){
+           }else{
+        var storeText = document.querySelector('#text-entry'+i).value
+         localStorage.setItem('storeText'+i, JSON.stringify(storeText))
+         answer.push('storeText'+i)
+       }
+      }
+      }
+       function parse(){
+        for(i=1;i<=11;i++){
+       var getText= JSON.parse( localStorage.getItem('storeText'+i))
+       document.querySelector('#text-entry'+i).innerHTML = getText;
+       }
+      }
+       parse()
+    </script>
+  </body>
+</html>
